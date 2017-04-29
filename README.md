@@ -1,7 +1,7 @@
 # Gridi Framework Grid
 
 ## Install
-`brew install gridi-framework-grid`
+`bower install gridi-framework-grid`
 
 ## Licence
 
