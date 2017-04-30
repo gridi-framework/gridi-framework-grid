@@ -17,7 +17,7 @@
 
 .container {
     max-width: $grid-container-max-width;
-    @if variable-exists(container-max-width-for-screens) {
+    @if variable-exists(grid-container-max-width-for-screens) {
         @each $screen-prefix, $sizes in get-screens-map() {
             @if map-has-key($grid-container-max-width-for-screens, $screen-prefix) {
                 @media(min-width: get-screen-size($screen-prefix, min)) {
