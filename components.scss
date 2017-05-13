@@ -34,16 +34,6 @@
 
 .row {
     display: block;
-    margin: auto floor(($grid-gutter / -2)) auto ceil(($grid-gutter / -2));
-    @if variable-exists(grid-gutter-for-screens) {
-        @each $screen-prefix, $sizes in get-screens-map() {
-            @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
-                @media(min-width: get-screen-size($screen-prefix, min)) {
-                    margin: auto floor((map-get($grid-gutter-for-screens, $screen-prefix) / -2)) auto ceil((map-get($grid-gutter-for-screens, $screen-prefix) / -2));
-                }
-            }
-        }
-    }
 
     &:before,
     &:after {
@@ -54,6 +44,23 @@
 
     &:after {
         clear: both;
+    }
+}
+
+.container-full,
+.container,
+.column {
+    .row {
+        margin: auto floor(($grid-gutter / -2)) auto ceil(($grid-gutter / -2));
+        @if variable-exists(grid-gutter-for-screens) {
+            @each $screen-prefix, $sizes in get-screens-map() {
+                @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
+                    @media(min-width: get-screen-size($screen-prefix, min)) {
+                        margin: auto floor((map-get($grid-gutter-for-screens, $screen-prefix) / -2)) auto ceil((map-get($grid-gutter-for-screens, $screen-prefix) / -2));
+                    }
+                }
+            }
+        }
     }
 }
 
