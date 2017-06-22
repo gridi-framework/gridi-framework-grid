@@ -50,7 +50,7 @@
 
 .container-full,
 .container,
-.column {
+.#{$grid-column-class-prefix} {
     .row {
         margin: auto floor(($grid-gutter / -2)) auto ceil(($grid-gutter / -2));
         @if variable-exists(grid-gutter-for-screens) {
@@ -65,7 +65,7 @@
     }
 }
 
-.column {
+.#{$grid-column-class-prefix} {
     display: block;
     float: left;
     width: auto;
@@ -86,16 +86,7 @@
 
 //Make columns sizes
 @for $i from 1 through $grid-columns {
-    .column-#{$i} {
+    .#{$grid-column-class-prefix}-#{$i} {
         width: percentage($i/$grid-columns);
-    }
-}
-@each $screen-prefix, $sizes in get-screens-map() {
-    @media(min-width: get-screen-size($screen-prefix, min)) {
-        @for $i from 1 through $grid-columns {
-            .column-#{$screen-prefix}-#{$i} {
-                width: percentage($i/$grid-columns);
-            }
-        }
     }
 }
