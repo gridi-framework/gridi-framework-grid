@@ -8,7 +8,8 @@
         @each $screen-prefix, $sizes in get-screens-map() {
             @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
                 @media(min-width: get-screen-size($screen-prefix, min)) {
-                    padding: 0 ceil((map-get($grid-gutter-for-screens, $screen-prefix) / 2)) 0 floor((map-get($grid-gutter-for-screens, $screen-prefix) / 2));
+                    padding-left: floor((map-get($grid-gutter-for-screens, $screen-prefix) / 2));
+                    padding-right: ceil((map-get($grid-gutter-for-screens, $screen-prefix) / 2));
                 }
             }
         }
@@ -96,28 +97,5 @@
                 width: percentage($i/$grid-columns);
             }
         }
-    }
-}
-
-//No gutters helpers
-.no-gutters {
-    &.container-full,
-    &.container,
-    .container-full,
-    .container {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    &.row,
-    .row {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    &.column,
-    .column {
-        padding-left: 0;
-        padding-right: 0;
     }
 }
