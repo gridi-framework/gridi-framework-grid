@@ -1,0 +1,49 @@
+@mixin grid-gutter($grid-gutter, $grid-gutter-for-screens: null) {
+    .container-full,
+    .container {
+        padding-left: floor(($grid-gutter / 2));
+        padding-right: ceil(($grid-gutter / 2));
+        @if is-map($grid-gutter-for-screens) {
+            @each $screen-prefix, $sizes in get-screens-map() {
+                @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
+                    @media(min-width: get-screen-size($screen-prefix, min)) {
+                        padding-left: floor((map-get($grid-gutter-for-screens, $screen-prefix) / 2));
+                        padding-right: ceil((map-get($grid-gutter-for-screens, $screen-prefix) / 2));
+                    }
+                }
+            }
+        }
+    }
+
+    .container-full,
+    .container,
+    .#{$grid-column-class-prefix} {
+        .row {
+            margin: auto floor(($grid-gutter / -2)) auto ceil(($grid-gutter / -2));
+            @if is-map($grid-gutter-for-screens) {
+                @each $screen-prefix, $sizes in get-screens-map() {
+                    @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
+                        @media(min-width: get-screen-size($screen-prefix, min)) {
+                            margin: auto floor((map-get($grid-gutter-for-screens, $screen-prefix) / -2)) auto ceil((map-get($grid-gutter-for-screens, $screen-prefix) / -2));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .#{$grid-column-class-prefix} {
+        padding-left: ceil(($grid-gutter / 2));
+        padding-right: floor(($grid-gutter / 2));
+        @if is-map($grid-gutter-for-screens) {
+            @each $screen-prefix, $sizes in get-screens-map() {
+                @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
+                    @media(min-width: get-screen-size($screen-prefix, min)) {
+                        padding-left: ceil((map-get($grid-gutter-for-screens, $screen-prefix)) / 2);
+                        padding-right: floor((map-get($grid-gutter-for-screens, $screen-prefix) / 2));
+                    }
+                }
+            }
+        }
+    }
+}
