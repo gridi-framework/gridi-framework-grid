@@ -4,7 +4,8 @@ $grid-column-class-prefix: 'column';
 $grid-columns: 12 !default;
 
 //Padding between columns. Gets divided in half for the left and right.
-$grid-gutter: 30px !default;
+$grid-gutter: $elements-gutter !default;
+$grid-gutter-for-screens: $elements-gutter-for-screens !default;
 //Defined padding between columns for each screens.
 /*
 $grid-gutter-for-screens: (
