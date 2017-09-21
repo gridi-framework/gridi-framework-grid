@@ -16,7 +16,7 @@ $grid-gutter-for-screens: (
 //Container sizes
 $grid-container-max-width: 1920px !default;
 //Defined container sizes for each screens.
-$grid-container-max-width-for-screens: ();
+$grid-container-max-width-for-screens: () !default;
 /*
 $grid-container-max-width-for-screens: (
     s1: 1940px,
