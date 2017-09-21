@@ -4,7 +4,7 @@
     margin: 0 auto;
     padding-left: floor(($grid-gutter / 2));
     padding-right: ceil(($grid-gutter / 2));
-    @if variable-exists(grid-gutter-for-screens) {
+    @if is-map($grid-gutter-for-screens) {
         @each $screen-prefix, $sizes in get-screens-map() {
             @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
                 @media(min-width: get-screen-size($screen-prefix, min)) {
@@ -18,7 +18,7 @@
 
 .container {
     max-width: $grid-container-max-width;
-    @if variable-exists(grid-container-max-width-for-screens) {
+    @if is-map($grid-container-max-width-for-screens) {
         @each $screen-prefix, $sizes in get-screens-map() {
             @if map-has-key($grid-container-max-width-for-screens, $screen-prefix) {
                 @media(min-width: get-screen-size($screen-prefix, min)) {
@@ -53,7 +53,7 @@
 .#{$grid-column-class-prefix} {
     .row {
         margin: auto floor(($grid-gutter / -2)) auto ceil(($grid-gutter / -2));
-        @if variable-exists(grid-gutter-for-screens) {
+        @if is-map($grid-gutter-for-screens) {
             @each $screen-prefix, $sizes in get-screens-map() {
                 @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
                     @media(min-width: get-screen-size($screen-prefix, min)) {
@@ -72,7 +72,7 @@
     min-height: 1px;
     padding-left: ceil(($grid-gutter / 2));
     padding-right: floor(($grid-gutter / 2));
-    @if variable-exists(grid-gutter-for-screens) {
+    @if is-map($grid-gutter-for-screens) {
         @each $screen-prefix, $sizes in get-screens-map() {
             @if map-has-key($grid-gutter-for-screens, $screen-prefix) {
                 @media(min-width: get-screen-size($screen-prefix, min)) {
