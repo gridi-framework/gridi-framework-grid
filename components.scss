@@ -36,14 +36,14 @@
 .row {
     display: block;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
         content: " ";
         display: table;
         width: 100%;
     }
 
-    &:after {
+    &::after {
         clear: both;
     }
 }
