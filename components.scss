@@ -33,21 +33,6 @@
     max-width: none;
 }
 
-.row {
-    display: block;
-
-    &::before,
-    &::after {
-        content: " ";
-        display: table;
-        width: 100%;
-    }
-
-    &::after {
-        clear: both;
-    }
-}
-
 .container-full,
 .container,
 .#{$grid-column-class-prefix} {
@@ -67,7 +52,6 @@
 
 .#{$grid-column-class-prefix} {
     display: block;
-    float: left;
     width: auto;
     min-height: 1px;
     padding-left: ceil(($grid-gutter / 2));
@@ -81,12 +65,5 @@
                 }
             }
         }
-    }
-}
-
-//Make columns sizes
-@for $i from 1 through $grid-columns {
-    .#{$grid-column-class-prefix}-#{$i} {
-        width: percentage($i/$grid-columns);
     }
 }
