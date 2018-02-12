@@ -1,7 +1,20 @@
 $grid-column-class-prefix: 'column';
 
-//Number of columns in the grid.
-$grid-columns: 12 !default;
+//Grid columns definition - prefix: width.
+$grid-columns: (
+    1: percentage(1/12),
+    2: percentage(2/12),
+    3: percentage(3/12),
+    4: percentage(4/12),
+    5: percentage(5/12),
+    6: percentage(6/12),
+    7: percentage(7/12),
+    8: percentage(8/12),
+    9: percentage(9/12),
+    10: percentage(10/12),
+    11: percentage(11/12),
+    12: percentage(12/12)
+) !default;
 
 //Padding between columns. Gets divided in half for the left and right.
 $grid-gutter: $elements-gutter !default;
